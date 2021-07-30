@@ -1,0 +1,146 @@
+-- This page will be for inserting values
+
+-- Inserting 4 customers into my customer table
+
+INSERT INTO customer(
+	customer_id,
+	first_name,
+	last_name,
+	phone_number,
+	address,
+	billing_info
+)VALUES
+	(1, 'Noah', 'Rosenbaum', '915-712-5861', '123 Nothing Ln, San Antonio, Texas, 78230', '5481 6174 1486 1476, 07/24, 365'),
+	(2, 'Alvaro', 'Gomez', '210-893-7458', '4713 Carbon Dioxide St, Eagle Pass, Texas, 78193', '4759 2467 6174 5475, 02/23, 658'),
+	(3, 'Johnathan', 'Smith', '210-986-7816', '7196 Street Name Cir, Hondo, Texas, 75239', '4641 4347 2261 1765 , 08/23, 234'),
+	(4, 'Sam', 'Marshall', '914-859-8475', '9813 Misty Falls St. Louis, Missouri, 84917', '4913 4269 7143 8135, 08/23, 965')
+;
+
+select * FROM customer
+
+
+-- Inserting 2 salespeople into my salesperson table
+	
+INSERT INTO salesperson(
+	salesperson_id,
+	first_name,
+	last_name,
+	office_number,
+	email	
+)VALUES
+	(1, 'Steve', 'Madden', '865-745-5634', 'stevemadden@cardealership.com'),
+	(2, 'Ignacio', 'San Jose', '865-748-6951', 'fisherman@cardealership.com')
+;
+
+select *
+from salesperson
+
+
+-- Inserting 2 Mechanics
+
+INSERT INTO mechanic(
+	mechanic_id,
+	first_name,
+	last_name
+)VALUES
+	(1, 'Kevin', 'Samuels'),
+	(2, 'Joe', 'Ingles')
+;
+
+select *
+from mechanic
+
+-- Insert 4 different cars, the first car is coming for service, the others are getting sold.
+
+INSERT INTO car(
+	car_id,
+	customer_id,
+	vin_number,
+	make,
+	model,
+	color,
+	year_
+)VALUES
+	(1, 1, '56789456ASDSA6724', 'Ford', 'F-150', 'Blue', 2021),
+	(2, 2, '456789HGFD654GE56', 'Mercedes', 'CX5', 'White', 2025),
+	(3, 3, '456789SDFSDDSSD54', 'BMW', 'XLR8', 'Chameleon', 2022),
+	(4, 2, '56789FSD54235BV54', 'Ferrari', 'Carrerra', 'Red', 2021)
+;
+
+Select *
+from car
+
+
+-- Here will be the 3 cars that are sold
+INSERT INTO sales(
+	invoice_id,
+	sale_date,
+	car_id, 
+	customer_id,
+	salesperson_id,
+	price 
+)VALUES
+	(1, '2021-07-30', 2, 2, 2, 73000.00),
+	(2, '2021-07-30', 3, 3, 2, 250000.00),
+	(3, '2021-07-30', 4, 4, 2, 750000.00)	
+;
+
+Select *
+from sales
+
+
+-- Here there will be the 2 service tickets
+
+INSERT INTO service_ticket(
+	service_ticket_id,
+	car_id,
+	customer_id,
+	date_received,
+	date_returned,
+	billing
+)VALUES
+	(1, 1, 1, '2021-07-22', '2021-07-30', 2000.00),
+	(2, 1, 1, '2021-06-07', '2021-06-08', 500.00)
+; 
+
+
+SELECT *
+FROM service_ticket
+
+
+-- Here will be the car parts for service
+
+INSERT INTO car_parts(
+	parts_id,
+	service_ticket_id,
+	part_number,
+	description,
+	parts_price
+)VALUES
+	(1, 1, 1, 'Muffler', 1600.00),
+	(2, 1, 2, 'Bumper', 400.00),
+	(3, 1, 3, 'Fender', 500.00)
+;
+
+
+SELECT *
+FROM car_parts
+
+
+-- Here is the invoices for the labor performed
+
+INSERT INTO labor_invoice(
+	labor_id,
+	mechanic_id,
+	service_ticket_id,
+	parts_id,
+	hours,
+	rate
+)VALUES
+	(1, 1, 1, 1, 5, 60.00),
+	(2, 1, 1, 2, 1, 60.00),
+	(3, 2, 2, 3, 4, 60.00)
+;
+
+SELECT *
+from labor_invoice
